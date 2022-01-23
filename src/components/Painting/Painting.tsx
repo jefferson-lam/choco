@@ -10,7 +10,6 @@ import {
 } from '@chakra-ui/react';
 import { makeStyles, createStyles } from '@material-ui/core';
 import React from 'react';
-import BookIcon from '../../icons/BookIcon';
 import PaintingIcon from '../../icons/PaintingIcon';
 import dogMeme from '../../images/helium-dog.jpeg';
 

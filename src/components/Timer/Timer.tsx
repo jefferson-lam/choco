@@ -6,7 +6,6 @@ import {
   ModalBody,
   ModalCloseButton,
   ModalContent,
-  ModalFooter,
   ModalHeader,
   ModalOverlay,
   NumberDecrementStepper,
@@ -16,7 +15,6 @@ import {
   NumberInputStepper,
   useDisclosure,
 } from '@chakra-ui/react';
-import { ClassNames } from '@emotion/react';
 import { makeStyles, createStyles } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import TimerIcon from '../../icons/TimerIcon';
