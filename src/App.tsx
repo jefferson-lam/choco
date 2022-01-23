@@ -1,16 +1,13 @@
 import React from 'react';
 import { styled, Theme } from '@material-ui/core/styles';
-import { ChakraProvider, theme } from '@chakra-ui/react';
 import MenuBar from './components/MenuBar/MenuBar';
-import MobileTopMenuBar from './components/MobileTopMenuBar/MobileTopMenuBar';
 import PreJoinScreens from './components/PreJoinScreens/PreJoinScreens';
-import ReconnectingNotification from './components/ReconnectingNotification/ReconnectingNotification';
-import RecordingNotifications from './components/RecordingNotifications/RecordingNotifications';
 import Room from './components/Room/Room';
 
 import useHeight from './hooks/useHeight/useHeight';
 import useRoomState from './hooks/useRoomState/useRoomState';
 import RoomBackground from './images/Apartment.jpeg';
+import { ChakraProvider } from '@chakra-ui/react';
 
 const Container = styled('div')({
   display: 'grid',

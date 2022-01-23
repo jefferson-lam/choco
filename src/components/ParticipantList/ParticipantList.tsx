@@ -5,9 +5,8 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import useMainParticipant from '../../hooks/useMainParticipant/useMainParticipant';
 import useParticipants from '../../hooks/useParticipants/useParticipants';
 import useVideoContext from '../../hooks/useVideoContext/useVideoContext';
-import useSelectedParticipant from '../VideoProvider/useSelectedParticipant/useSelectedParticipant';
 import useScreenShareParticipant from '../../hooks/useScreenShareParticipant/useScreenShareParticipant';
-import { LocalParticipant, RemoteParticipant } from 'twilio-video';
+import { RemoteParticipant } from 'twilio-video';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -45,19 +44,16 @@ const useStyles = makeStyles((theme: Theme) =>
 function ParticipantContainer(props: any) {
   const DEFAULT_SPOT = ['950px', '600px'];
   const POS_1 = ['1000px', '780px'];
-  const POS_2 = ['1450px', '800px'];
+  const POS_2 = ['1570px', '450px'];
   const POSITIONS = [DEFAULT_SPOT, POS_1, POS_2];
   let LEFT;
   let TOP;
 
-  if (props.index != undefined && POSITIONS[props.index] != undefined) {
-    console.log(POSITIONS[props.index]);
+  if (props.index !== undefined && POSITIONS[props.index] !== undefined) {
     LEFT = POSITIONS[props.index as number][0];
     TOP = POSITIONS[props.index as number][1];
   } else {
-    console.log('Index ' + props.index + 'not defined?');
-    LEFT = DEFAULT_SPOT[0];
-    TOP = DEFAULT_SPOT[1];
+    return null;
   }
 
   return (
@@ -83,7 +79,6 @@ export default function ParticipantList() {
   const { room } = useVideoContext();
   const localParticipant = room!.localParticipant;
   let participants = useParticipants();
-  const [selectedParticipant, setSelectedParticipant] = useSelectedParticipant();
   const screenShareParticipant = useScreenShareParticipant();
   const mainParticipant = useMainParticipant();
   const isRemoteParticipantScreenSharing = screenShareParticipant && screenShareParticipant !== localParticipant;
@@ -100,9 +95,6 @@ export default function ParticipantList() {
         <div className={classes.innerScrollContainer}>
           {/* <Participant participant={localParticipant} isLocalParticipant={true} /> */}
           {participants.map((participant, participantIndex) => {
-            const isSelected = participant === selectedParticipant;
-            const hideParticipant =
-              participant === mainParticipant && participant !== screenShareParticipant && !isSelected;
             return <ParticipantContainer listParticipant={participant} index={participantIndex} />;
           })}
         </div>

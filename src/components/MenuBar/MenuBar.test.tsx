@@ -3,8 +3,6 @@ import { Button, Grid, Typography } from '@material-ui/core';
 import MenuBar from './MenuBar';
 import { shallow } from 'enzyme';
 import ToggleAudioButton from '../Buttons/ToggleAudioButton/ToggleAudioButton';
-import ToggleChatButton from '../Buttons/ToggleChatButton/ToggleChatButton';
-import ToggleScreenShareButton from '../Buttons/ToogleScreenShareButton/ToggleScreenShareButton';
 import ToggleVideoButton from '../Buttons/ToggleVideoButton/ToggleVideoButton';
 import useRoomState from '../../hooks/useRoomState/useRoomState';
 import useVideoContext from '../../hooks/useVideoContext/useVideoContext';
@@ -36,14 +34,12 @@ describe('the MenuBar component', () => {
     const wrapper = shallow(<MenuBar />);
     expect(wrapper.find(ToggleAudioButton).prop('disabled')).toBe(true);
     expect(wrapper.find(ToggleVideoButton).prop('disabled')).toBe(true);
-    expect(wrapper.find(ToggleScreenShareButton).prop('disabled')).toBe(true);
   });
 
   it('should enable toggle buttons while connected to the room', () => {
     const wrapper = shallow(<MenuBar />);
     expect(wrapper.find(ToggleAudioButton).prop('disabled')).toBe(false);
     expect(wrapper.find(ToggleVideoButton).prop('disabled')).toBe(false);
-    expect(wrapper.find(ToggleScreenShareButton).prop('disabled')).toBe(false);
   });
 
   it('should hide the ToggleScreenShareButton and show the "You are sharing your screen" banner when isSharingScreen is true', () => {
@@ -53,7 +49,6 @@ describe('the MenuBar component', () => {
       room: { name: 'Test Room' },
     }));
     const wrapper = shallow(<MenuBar />);
-    expect(wrapper.find(ToggleScreenShareButton).exists()).toBe(false);
     expect(
       wrapper
         .find(Grid)
@@ -70,7 +65,6 @@ describe('the MenuBar component', () => {
       room: { name: 'Test Room' },
     }));
     const wrapper = shallow(<MenuBar />);
-    expect(wrapper.find(ToggleScreenShareButton).exists()).toBe(true);
   });
 
   it('should hide the ToggleScreenShareButton when isSharingScreen is false and isMobile is true', () => {
@@ -82,18 +76,6 @@ describe('the MenuBar component', () => {
     // @ts-ignore
     utils.isMobile = true;
     const wrapper = shallow(<MenuBar />);
-    expect(wrapper.find(ToggleScreenShareButton).exists()).toBe(false);
-  });
-
-  it('should render the ToggleChatButton when REACT_APP_DISABLE_TWILIO_CONVERSATIONS is not true', () => {
-    const wrapper = shallow(<MenuBar />);
-    expect(wrapper.find(ToggleChatButton).exists()).toBe(true);
-  });
-
-  it('should hide the ToggleChatButton when REACT_APP_DISABLE_TWILIO_CONVERSATIONS is true', () => {
-    process.env.REACT_APP_DISABLE_TWILIO_CONVERSATIONS = 'true';
-    const wrapper = shallow(<MenuBar />);
-    expect(wrapper.find(ToggleChatButton).exists()).toBe(false);
   });
 
   it('should call toggleScreenShare when the "Stop Sharing" button is clicked', () => {

@@ -1,4 +1,3 @@
-import MainParticipantInfo from '../MainParticipantInfo/MainParticipantInfo';
 import ParticipantTracks from '../ParticipantTracks/ParticipantTracks';
 import React from 'react';
 import useMainParticipant from '../../hooks/useMainParticipant/useMainParticipant';

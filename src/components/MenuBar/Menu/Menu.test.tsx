@@ -11,7 +11,6 @@ import { shallow } from 'enzyme';
 import { render, fireEvent, waitForElement } from '@testing-library/react';
 
 import { useAppState } from '../../../state';
-import useChatContext from '../../../hooks/useChatContext/useChatContext';
 import useFlipCameraToggle from '../../../hooks/useFlipCameraToggle/useFlipCameraToggle';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import useIsRecording from '../../../hooks/useIsRecording/useIsRecording';
@@ -29,11 +28,9 @@ const mockUseFlipCameraToggle = useFlipCameraToggle as jest.Mock<any>;
 const mockUseMediaQuery = useMediaQuery as jest.Mock<boolean>;
 const mockUseAppState = useAppState as jest.Mock<any>;
 const mockUseIsRecording = useIsRecording as jest.Mock<boolean>;
-const mockUseChatContext = useChatContext as jest.Mock<any>;
 const mockUseLocalVideoToggle = useLocalVideoToggle as jest.Mock<any>;
 
 const mockToggleChatWindow = jest.fn();
-mockUseChatContext.mockImplementation(() => ({ setIsChatWindowOpen: mockToggleChatWindow }));
 mockUseLocalVideoToggle.mockImplementation(() => [true, () => {}]);
 
 describe('the Menu component', () => {
