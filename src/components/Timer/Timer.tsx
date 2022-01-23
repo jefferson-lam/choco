@@ -27,6 +27,7 @@ const useStyles = makeStyles(() =>
       transform: 'scale(0.5)',
       '&:hover': {
         opacity: '0.5',
+        cursor: 'pointer',
       },
     },
   })

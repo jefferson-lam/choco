@@ -11,7 +11,8 @@ import TimerContainer from '../Timer/Timer';
 
 export default function Room() {
   return (
-    <div style={{ backgroundImage: `url(${RoomBackground})` }}>
+    <div>
+      <TimerContainer />
       <ParticipantList />
     </div>
   );

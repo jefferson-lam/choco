@@ -37,11 +37,11 @@ export default function App() {
   const height = useHeight();
 
   return (
-    <ChakraProvider>
-      <Container style={{ height }}>
-        {roomState === 'disconnected' ? (
-          <PreJoinScreens />
-        ) : (
+    <Container style={{ height }}>
+      {roomState === 'disconnected' ? (
+        <PreJoinScreens />
+      ) : (
+        <ChakraProvider>
           <Main>
             {/* <ReconnectingNotification />
           <RecordingNotifications />
@@ -49,8 +49,8 @@ export default function App() {
             <Room />
             <MenuBar />
           </Main>
-        )}
-      </Container>
-    </ChakraProvider>
+        </ChakraProvider>
+      )}
+    </Container>
   );
 }
