@@ -31,10 +31,31 @@ const useStyles = makeStyles((theme: Theme) => {
   };
 });
 
+function TestContainer() {
+  const LEFT_POS = '930px';
+  const TOP_POS = '620px';
+  return (
+    <div
+      style={{
+        backgroundColor: 'lightblue',
+        display: 'inline-block',
+        textAlign: 'center',
+        position: 'fixed',
+        left: LEFT_POS,
+        top: TOP_POS,
+      }}
+    >
+      Join Spot
+      <br />+
+    </div>
+  );
+}
+
 export default function Room() {
   const classes = useStyles();
   const { isChatWindowOpen } = useChatContext();
   const { isBackgroundSelectionOpen } = useVideoContext();
+
   return (
     <div
       style={{ backgroundImage: `url(${RoomBackground})` }}
@@ -46,6 +67,7 @@ export default function Room() {
       {/* <ParticipantList />
       <ChatWindow />
       <BackgroundSelectionDialog /> */}
+      <TestContainer />
     </div>
   );
 }
