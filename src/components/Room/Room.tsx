@@ -8,10 +8,12 @@ import Timer from '../Timer/Timer';
 import TimerIcon from '../../icons/TimerIcon';
 import RoomBackground from '../../images/Apartment.jpeg';
 import TimerContainer from '../Timer/Timer';
+import BookContainer from '../Book/Book';
 
 export default function Room() {
   return (
     <div>
+      <BookContainer />
       <TimerContainer />
       <ParticipantList />
     </div>

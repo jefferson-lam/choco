@@ -85,7 +85,7 @@ export default function TimerContainer(props: any) {
       <div onClick={onOpen} style={{ position: 'fixed', left: spot[0], top: spot[1], width: '100px', height: '100px' }}>
         <Timer />
       </div>
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Pomodoro Timer</ModalHeader>
