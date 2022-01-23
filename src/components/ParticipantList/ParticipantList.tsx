@@ -49,7 +49,7 @@ function ParticipantContainer(props: any) {
   let LEFT;
   let TOP;
 
-  if (props.index != undefined && POSITIONS[props.index] != undefined) {
+  if (props.index !== undefined && POSITIONS[props.index] !== undefined) {
     LEFT = POSITIONS[props.index as number][0];
     TOP = POSITIONS[props.index as number][1];
   } else {
