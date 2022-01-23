@@ -31,20 +31,3 @@ export default function Participant({
     />
   );
 }
-
-{
-  /* <ParticipantInfo
-      participant={participant}
-      onClick={onClick}
-      isSelected={isSelected}
-      isLocalParticipant={isLocalParticipant}
-      hideParticipant={hideParticipant}
-    >
-      <ParticipantTracks
-        participant={participant}
-        videoOnly={videoOnly}
-        enableScreenShare={enableScreenShare}
-        isLocalParticipant={isLocalParticipant}
-      />
-    </ParticipantInfo> */
-}
