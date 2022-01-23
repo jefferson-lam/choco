@@ -32,21 +32,24 @@ const useStyles = makeStyles((theme: Theme) => {
 });
 
 function TestContainer() {
-  const LEFT_POS = '930px';
-  const TOP_POS = '620px';
+  const LEFT_POS = '900px';
+  const TOP_POS = '600px';
   return (
     <div
       style={{
-        backgroundColor: 'lightblue',
-        display: 'inline-block',
-        textAlign: 'center',
+        // backgroundColor: 'lightblue',
+        // display: 'inline-block',
+        // textAlign: 'center',
         position: 'fixed',
+        height: '10%',
+        width: '10%',
         left: LEFT_POS,
         top: TOP_POS,
       }}
     >
-      Join Spot
-      <br />+
+      <MainParticipant />
+      {/* Join Spot
+      <br />+ */}
     </div>
   );
 }
