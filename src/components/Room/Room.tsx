@@ -10,6 +10,8 @@ import useVideoContext from '../../hooks/useVideoContext/useVideoContext';
 import Participant from '../Participant/Participant';
 import Space from '../Space/Space';
 import RoomBackground from '../../images/room-space.png';
+import Timer from '../Timer/Timer';
+import TimerIcon from '../../icons/TimerIcon';
 
 const useStyles = makeStyles((theme: Theme) => {
   const totalMobileSidebarHeight = `${theme.sidebarMobileHeight +
@@ -71,6 +73,7 @@ export default function Room() {
       <ChatWindow />
       <BackgroundSelectionDialog /> */}
       {/* <MainParticipantContainer /> */}
+      <TimerIcon />
       <ParticipantList />
     </div>
   );
