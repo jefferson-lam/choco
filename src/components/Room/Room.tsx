@@ -12,6 +12,7 @@ import Space from '../Space/Space';
 import Timer from '../Timer/Timer';
 import TimerIcon from '../../icons/TimerIcon';
 import RoomBackground from '../../images/Apartment.jpeg';
+import TimerContainer from '../Timer/Timer';
 
 const useStyles = makeStyles((theme: Theme) => {
   const totalMobileSidebarHeight = `${theme.sidebarMobileHeight +
@@ -34,8 +35,8 @@ const useStyles = makeStyles((theme: Theme) => {
 });
 
 function MainParticipantContainer() {
-  const LEFT_POS = '900px';
-  const TOP_POS = '600px';
+  const LEFT_POS = '1800px';
+  const TOP_POS = '450px';
   return (
     <div
       style={{
@@ -57,10 +58,6 @@ function MainParticipantContainer() {
 }
 
 export default function Room() {
-  const classes = useStyles();
-  const { isChatWindowOpen } = useChatContext();
-  const { isBackgroundSelectionOpen } = useVideoContext();
-
   return (
     <div
       style={{ backgroundImage: `url(${RoomBackground})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}
@@ -73,7 +70,7 @@ export default function Room() {
       <ChatWindow />
       <BackgroundSelectionDialog /> */}
       {/* <MainParticipantContainer /> */}
-      <TimerIcon />
+      <TimerContainer />
       <ParticipantList />
     </div>
   );
