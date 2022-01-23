@@ -43,19 +43,21 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 function ParticipantContainer(props: any) {
-  const POS_1 = ['300px', '200px'];
-  const POS_2 = ['700px', '100px'];
+  const DEFAULT_SPOT = ['900px', '600px'];
+  const POS_1 = ['1000px', '780px'];
+  const POS_2 = ['1450px', '800px'];
   const POSITIONS = [POS_1, POS_2];
   let LEFT;
   let TOP;
+
   if (props.index != undefined && POSITIONS[props.index] != undefined) {
     console.log(POSITIONS[props.index]);
     LEFT = POSITIONS[props.index as number][0];
     TOP = POSITIONS[props.index as number][1];
   } else {
     console.log('Index ' + props.index + 'not defined?');
-    LEFT = '930px';
-    TOP = '630px';
+    LEFT = DEFAULT_SPOT[0];
+    TOP = DEFAULT_SPOT[1];
   }
 
   return (
