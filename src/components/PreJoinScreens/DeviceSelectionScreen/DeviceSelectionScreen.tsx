@@ -17,8 +17,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginTop: '1em',
   },
   deviceButton: {
+    color: '#000000',
     width: '100%',
-    border: '2px solid #aaa',
+    border: '1px solid #000000',
     margin: '1em 0',
   },
   localPreviewContainer: {
@@ -86,48 +87,46 @@ export default function DeviceSelectionScreen({ name, roomName, setStep }: Devic
 
   return (
     <>
-      <Typography variant="h5" className={classes.gutterBottom}>
-        Join {roomName}
-      </Typography>
-
-      <Grid container justifyContent="center">
-        <Grid item md={7} sm={12} xs={12}>
-          <div className={classes.localPreviewContainer}>
-            <LocalVideoPreview identity={name} />
-          </div>
-          <div className={classes.mobileButtonBar}>
-            <Hidden mdUp>
-              <ToggleAudioButton className={classes.mobileButton} disabled={disableButtons} />
-              <ToggleVideoButton className={classes.mobileButton} disabled={disableButtons} />
-            </Hidden>
-            <SettingsMenu mobileButtonClass={classes.mobileButton} />
-          </div>
-        </Grid>
-        <Grid item md={5} sm={12} xs={12}>
-          <Grid container direction="column" justifyContent="space-between" style={{ height: '100%' }}>
-            <div>
-              <Hidden smDown>
-                <ToggleAudioButton className={classes.deviceButton} disabled={disableButtons} />
-                <ToggleVideoButton className={classes.deviceButton} disabled={disableButtons} />
-              </Hidden>
+      <div style={{ width: '70%' }}>
+        <Grid container justifyContent="center">
+          <Grid item md={7} sm={12} xs={12}>
+            <div className={classes.localPreviewContainer}>
+              <LocalVideoPreview identity={name} />
             </div>
-            <div className={classes.joinButtons}>
-              <Button variant="outlined" color="primary" onClick={() => setStep(Steps.roomNameStep)}>
-                Cancel
-              </Button>
-              <Button
-                variant="contained"
-                color="primary"
-                data-cy-join-now
-                onClick={handleJoin}
-                disabled={disableButtons}
-              >
-                Join Now
-              </Button>
+            <div className={classes.mobileButtonBar}>
+              <Hidden mdUp>
+                <ToggleAudioButton className={classes.mobileButton} disabled={disableButtons} />
+                <ToggleVideoButton className={classes.mobileButton} disabled={disableButtons} />
+              </Hidden>
+              <SettingsMenu mobileButtonClass={classes.mobileButton} />
             </div>
           </Grid>
+          <Grid item md={5} sm={12} xs={12}>
+            <Grid container direction="column" justifyContent="space-between" style={{ height: '100%' }}>
+              <div>
+                <Hidden smDown>
+                  <ToggleAudioButton className={classes.deviceButton} disabled={disableButtons} />
+                  <ToggleVideoButton className={classes.deviceButton} disabled={disableButtons} />
+                </Hidden>
+              </div>
+              <div className={classes.joinButtons}>
+                <Button variant="outlined" color="secondary" onClick={() => setStep(Steps.roomNameStep)}>
+                  Cancel
+                </Button>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  data-cy-join-now
+                  onClick={handleJoin}
+                  disabled={disableButtons}
+                >
+                  Join Now
+                </Button>
+              </div>
+            </Grid>
+          </Grid>
         </Grid>
-      </Grid>
+      </div>
     </>
   );
 }

@@ -1,11 +1,12 @@
 import React, { useState, useEffect, FormEvent } from 'react';
 import DeviceSelectionScreen from './DeviceSelectionScreen/DeviceSelectionScreen';
-import IntroContainer from '../IntroContainer/IntroContainer';
 import MediaErrorSnackbar from './MediaErrorSnackbar/MediaErrorSnackbar';
 import RoomNameScreen from './RoomNameScreen/RoomNameScreen';
 import { useAppState } from '../../state';
 import { useParams } from 'react-router-dom';
 import useVideoContext from '../../hooks/useVideoContext/useVideoContext';
+import { Center, SimpleGrid, Stack } from '@chakra-ui/react';
+import CatIcon from '../../icons/CatIcon';
 
 export enum Steps {
   roomNameStep,
@@ -52,21 +53,45 @@ export default function PreJoinScreens() {
   };
 
   return (
-    <IntroContainer>
-      <MediaErrorSnackbar error={mediaError} />
+    <>
       {step === Steps.roomNameStep && (
-        <RoomNameScreen
-          name={name}
-          roomName={roomName}
-          setName={setName}
-          setRoomName={setRoomName}
-          handleSubmit={handleSubmit}
-        />
+        <SimpleGrid columns={2} spacing={10}>
+          <Center>
+            <Center>
+              <MediaErrorSnackbar error={mediaError} />
+              {step === Steps.roomNameStep && (
+                <>
+                  <Stack>
+                    <Center>
+                      {' '}
+                      <h1>choco.</h1>
+                    </Center>
+                    <Center>
+                      {' '}
+                      <h4>interactive collaboration made fun</h4>
+                    </Center>
+                    <RoomNameScreen
+                      name={name}
+                      roomName={roomName}
+                      setName={setName}
+                      setRoomName={setRoomName}
+                      handleSubmit={handleSubmit}
+                    />
+                  </Stack>
+                </>
+              )}
+            </Center>
+          </Center>
+          <Center>
+            <CatIcon></CatIcon>
+          </Center>
+        </SimpleGrid>
       )}
-
-      {step === Steps.deviceSelectionStep && (
-        <DeviceSelectionScreen name={name} roomName={roomName} setStep={setStep} />
-      )}
-    </IntroContainer>
+      <Center>
+        {step === Steps.deviceSelectionStep && (
+          <DeviceSelectionScreen name={name} roomName={roomName} setStep={setStep} />
+        )}
+      </Center>
+    </>
   );
 }
