@@ -45,14 +45,18 @@ function ParticipantContainer(props: any) {
   const DEFAULT_SPOT = ['950px', '600px'];
   const POS_1 = ['1000px', '780px'];
   const POS_2 = ['1570px', '450px'];
-  const POSITIONS = [DEFAULT_SPOT, POS_1, POS_2];
+  const POS_3 = ['200px', '680px'];
+  const POSITIONS = [DEFAULT_SPOT, POS_1, POS_2, POS_3];
   let LEFT;
   let TOP;
 
   if (props.index !== undefined && POSITIONS[props.index] !== undefined) {
+    console.log(props.listParticipant);
+    console.log(props.index);
     LEFT = POSITIONS[props.index as number][0];
     TOP = POSITIONS[props.index as number][1];
   } else {
+    console.log(props);
     return null;
   }
 
@@ -67,6 +71,7 @@ function ParticipantContainer(props: any) {
         width: '10%',
         left: LEFT,
         top: TOP,
+        transform: 'scale(-1, 1)',
       }}
     >
       <Participant key={props.listParticipant.sid} participant={props.listParticipant} />
@@ -83,8 +88,22 @@ export default function ParticipantList() {
   const mainParticipant = useMainParticipant();
   const isRemoteParticipantScreenSharing = screenShareParticipant && screenShareParticipant !== localParticipant;
   console.log(participants);
-  participants.push(mainParticipant as RemoteParticipant);
-  if (participants.length === 0) return null; // Don't render this component if there are no remote participants.
+  console.log(localParticipant);
+  if (participants.filter(e => e.sid === localParticipant.sid).length === 0) {
+    participants.push((localParticipant as unknown) as RemoteParticipant);
+  }
+  // console.log(typeof(mainParticipant.constructor) === LocalParticipant.toString());
+  // console.log(participants.includes(localParticipant.sid));
+  // if (!participants.includes(localParticpant as RemoteParticipant)) {
+  //   participants.push(localParticipant as RemoteParticipant);
+  // }
+  console.log(mainParticipant.constructor.name);
+  console.log(mainParticipant.constructor);
+  // participants.push(mainParticipant as RemoteParticipant);
+  if (participants.length === 0) {
+    console.log('NOPE PLS');
+    return null; // Don't render this component if there are no remote participants.
+  }
   return (
     <aside
       className={clsx(classes.container, {
@@ -95,7 +114,9 @@ export default function ParticipantList() {
         <div className={classes.innerScrollContainer}>
           {/* <Participant participant={localParticipant} isLocalParticipant={true} /> */}
           {participants.map((participant, participantIndex) => {
-            return <ParticipantContainer listParticipant={participant} index={participantIndex} />;
+            return (
+              <ParticipantContainer listParticipant={participant} index={participantIndex} key={participant.sid} />
+            );
           })}
         </div>
       </div>

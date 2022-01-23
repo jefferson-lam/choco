@@ -11,7 +11,7 @@
     "@material-ui/icons": "^4.11.2",
     "@twilio-labs/plugin-rtc": "^0.8.2",
     "@twilio/conversations": "^1.2.3",
-    "@twilio/video-processors": "^1.0.1",
+    "@twilio/video-processors": "^1.0.2",
     "@twilio/video-room-monitor": "^1.0.0",
     "@types/d3-timer": "^1.0.9",
     "@types/dotenv": "^8.2.0",

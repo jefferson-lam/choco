@@ -9,6 +9,7 @@ import useHandleTrackPublicationFailed from './useHandleTrackPublicationFailed/u
 import useLocalTracks from './useLocalTracks/useLocalTracks';
 import useRestartAudioTrackOnDeviceChange from './useRestartAudioTrackOnDeviceChange/useRestartAudioTrackOnDeviceChange';
 import useRoom from './useRoom/useRoom';
+import useBackgroundSettings, { BackgroundSettings } from './useBackgroundSettings/useBackgroundSettings';
 
 /*
  *  The hooks used by the VideoProvider component are different than the hooks found in the 'hooks/' directory. The hooks
@@ -30,6 +31,8 @@ export interface IVideoContext {
   getAudioAndVideoTracks: () => Promise<void>;
   isBackgroundSelectionOpen: boolean;
   setIsBackgroundSelectionOpen: (value: boolean) => void;
+  backgroundSettings: BackgroundSettings;
+  setBackgroundSettings: (settings: BackgroundSettings) => void;
 }
 
 export const VideoContext = createContext<IVideoContext>(null!);
@@ -66,6 +69,10 @@ export function VideoProvider({ options, children, onError = () => {} }: VideoPr
   useRestartAudioTrackOnDeviceChange(localTracks);
 
   const [isBackgroundSelectionOpen, setIsBackgroundSelectionOpen] = useState(false);
+  const videoTrack = localTracks.find(track => !track.name.includes('screen') && track.kind === 'video') as
+    | LocalVideoTrack
+    | undefined;
+  const [backgroundSettings, setBackgroundSettings] = useBackgroundSettings(videoTrack, room);
 
   return (
     <VideoContext.Provider
@@ -82,6 +89,8 @@ export function VideoProvider({ options, children, onError = () => {} }: VideoPr
         getAudioAndVideoTracks,
         isBackgroundSelectionOpen,
         setIsBackgroundSelectionOpen,
+        backgroundSettings,
+        setBackgroundSettings,
       }}
     >
       <SelectedParticipantProvider room={room}>{children}</SelectedParticipantProvider>
