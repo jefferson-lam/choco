@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 function ParticipantContainer(props: any) {
-  const DEFAULT_SPOT = ['900px', '600px'];
+  const DEFAULT_SPOT = ['950px', '600px'];
   const POS_1 = ['1000px', '780px'];
   const POS_2 = ['1450px', '800px'];
   const POSITIONS = [DEFAULT_SPOT, POS_1, POS_2];
