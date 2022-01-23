@@ -1,6 +1,6 @@
 import React from 'react';
 import ParticipantList from '../ParticipantList/ParticipantList';
-import RoomBackground from '../../images/room-space.png';
+import RoomBackground from '../../images/Apartment.jpeg';
 
 export default function Room() {
   return (

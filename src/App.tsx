@@ -15,11 +15,11 @@ const Container = styled('div')({
 
 const Main = styled('main')(({ theme }: { theme: Theme }) => ({
   overflow: 'hidden',
-  paddingBottom: `${theme.footerHeight}px`, // Leave some space for the footer
-  background: 'black',
+  backgroundImage: `url(${RoomBackground})`,
   backgroundRepeat: 'no-repeat',
   backgroundSize: 'cover',
-  backgroundImage: `url(${RoomBackground})`,
+  background: 'transparent',
+  paddingBottom: `${theme.footerHeight}px`, // Leave some space for the footer
   [theme.breakpoints.down('sm')]: {
     paddingBottom: `${theme.mobileFooterHeight + theme.mobileTopBarHeight}px`, // Leave some space for the mobile header and footer
   },
