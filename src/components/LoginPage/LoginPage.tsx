@@ -61,7 +61,7 @@ export default function LoginPage() {
   const [passcode, setPasscode] = useState('');
   const [authError, setAuthError] = useState<Error | null>(null);
 
-  const isAuthEnabled = Boolean(process.env.REACT_APP_SET_AUTH);
+  const isAuthEnabled = false;
 
   const login = () => {
     setAuthError(null);

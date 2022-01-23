@@ -95,28 +95,8 @@ interface IntroContainerProps {
 
 const IntroContainer = (props: IntroContainerProps) => {
   const classes = useStyles();
-  const { user } = useAppState();
-  const location = useLocation();
 
-  return (
-    <div className={classes.background}>
-      <TwilioLogo className={classes.twilioLogo} />
-      {user && location.pathname !== '/login' && <UserMenu />}
-      <div className={classes.container}>
-        <div className={classes.innerContainer}>
-          <div className={classes.swooshContainer}>
-            <div className={classes.logoContainer}>
-              <VideoLogo />
-              <Typography variant="h6" className={classes.title}>
-                Twilio Programmable Video
-              </Typography>
-            </div>
-          </div>
-          <div className={classes.content}>{props.children}</div>
-        </div>
-      </div>
-    </div>
-  );
+  return <div>ekk</div>;
 };
 
 export default IntroContainer;

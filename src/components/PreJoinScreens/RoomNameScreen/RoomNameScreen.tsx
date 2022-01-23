@@ -1,6 +1,7 @@
 import React, { ChangeEvent, FormEvent } from 'react';
 import { Typography, makeStyles, TextField, Grid, Button, InputLabel, Theme } from '@material-ui/core';
 import { useAppState } from '../../../state';
+import { Center } from '@chakra-ui/react';
 
 const useStyles = makeStyles((theme: Theme) => ({
   gutterBottom: {
@@ -51,20 +52,12 @@ export default function RoomNameScreen({ name, roomName, setName, setRoomName, h
 
   return (
     <>
-      <Typography variant="h5" className={classes.gutterBottom}>
-        Join a Room
-      </Typography>
-      <Typography variant="body1">
-        {hasUsername
-          ? "Enter the name of a room you'd like to join."
-          : "Enter your name and the name of a room you'd like to join"}
-      </Typography>
       <form onSubmit={handleSubmit}>
         <div className={classes.inputContainer}>
           {!hasUsername && (
             <div className={classes.textFieldContainer}>
               <InputLabel shrink htmlFor="input-user-name">
-                Your Name
+                Display Name
               </InputLabel>
               <TextField
                 id="input-user-name"
@@ -90,18 +83,18 @@ export default function RoomNameScreen({ name, roomName, setName, setRoomName, h
               onChange={handleRoomNameChange}
             />
           </div>
+          <Center>
+            <Button
+              variant="contained"
+              type="submit"
+              color="primary"
+              disabled={!name || !roomName}
+              className={classes.continueButton}
+            >
+              Continue
+            </Button>
+          </Center>
         </div>
-        <Grid container justifyContent="flex-end">
-          <Button
-            variant="contained"
-            type="submit"
-            color="primary"
-            disabled={!name || !roomName}
-            className={classes.continueButton}
-          >
-            Continue
-          </Button>
-        </Grid>
       </form>
     </>
   );
