@@ -9,7 +9,7 @@ import useChatContext from '../../hooks/useChatContext/useChatContext';
 import useVideoContext from '../../hooks/useVideoContext/useVideoContext';
 import Participant from '../Participant/Participant';
 import Space from '../Space/Space';
-import RoomBackground from '../../images/room-space.png';
+import RoomBackground from '../../images/Apartment.jpeg';
 
 const useStyles = makeStyles((theme: Theme) => {
   const totalMobileSidebarHeight = `${theme.sidebarMobileHeight +
@@ -61,7 +61,7 @@ export default function Room() {
 
   return (
     <div
-      style={{ backgroundImage: `url(${RoomBackground})` }}
+      style={{ backgroundImage: `url(${RoomBackground})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}
       // className={clsx(classes.container, {
       //   [classes.rightDrawerOpen]: isChatWindowOpen || isBackgroundSelectionOpen,
       // })}
