@@ -16,9 +16,22 @@ import {
   NumberInputStepper,
   useDisclosure,
 } from '@chakra-ui/react';
+import { ClassNames } from '@emotion/react';
+import { makeStyles, createStyles } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import TimerIcon from '../../icons/TimerIcon';
 
+const useStyles = makeStyles(() =>
+  createStyles({
+    timer: {
+      transform: 'scale(0.5)',
+      '&:hover': {
+        opacity: '0.5',
+        color: '#00000',
+      },
+    },
+  })
+);
 export default function TimerContainer(props: any) {
   const [minuteParam, setMinuteParam] = useState(25);
   const [minutes, setMinutes] = useState(25);
@@ -28,7 +41,7 @@ export default function TimerContainer(props: any) {
   const [isStarted, setIsStarted] = useState(false);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const spot = ['1240px', '300px'];
+  const spot = ['1287px', '310px'];
 
   useEffect(() => {
     let interval = setInterval(() => {
@@ -69,7 +82,7 @@ export default function TimerContainer(props: any) {
 
   return (
     <>
-      <div onClick={onOpen} style={{ position: 'fixed', left: spot[0], top: spot[1] }}>
+      <div onClick={onOpen} style={{ position: 'fixed', left: spot[0], top: spot[1], width: '100px', height: '100px' }}>
         <Timer />
       </div>
       <Modal isOpen={isOpen} onClose={onClose}>
@@ -112,5 +125,10 @@ export default function TimerContainer(props: any) {
 }
 
 function Timer() {
-  return <TimerIcon />;
+  const classes = useStyles();
+  return (
+    <div className={classes.timer}>
+      <TimerIcon />
+    </div>
+  );
 }
