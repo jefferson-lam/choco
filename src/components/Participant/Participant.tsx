@@ -23,7 +23,17 @@ export default function Participant({
   hideParticipant,
 }: ParticipantProps) {
   return (
-    <ParticipantInfo
+    <ParticipantTracks
+      participant={participant}
+      videoOnly={videoOnly}
+      enableScreenShare={enableScreenShare}
+      isLocalParticipant={isLocalParticipant}
+    />
+  );
+}
+
+{
+  /* <ParticipantInfo
       participant={participant}
       onClick={onClick}
       isSelected={isSelected}
@@ -36,6 +46,5 @@ export default function Participant({
         enableScreenShare={enableScreenShare}
         isLocalParticipant={isLocalParticipant}
       />
-    </ParticipantInfo>
-  );
+    </ParticipantInfo> */
 }

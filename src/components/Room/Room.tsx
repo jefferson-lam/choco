@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme: Theme) => {
   };
 });
 
-function TestContainer() {
+function MainParticipantContainer() {
   const LEFT_POS = '900px';
   const TOP_POS = '600px';
   return (
@@ -70,7 +70,8 @@ export default function Room() {
       {/* <ParticipantList />
       <ChatWindow />
       <BackgroundSelectionDialog /> */}
-      <TestContainer />
+      {/* <MainParticipantContainer /> */}
+      <ParticipantList />
     </div>
   );
 }
