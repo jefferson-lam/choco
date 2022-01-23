@@ -1,6 +1,6 @@
 import React from 'react';
 import { styled, Theme } from '@material-ui/core/styles';
-
+import { ChakraProvider, theme } from '@chakra-ui/react';
 import MenuBar from './components/MenuBar/MenuBar';
 import MobileTopMenuBar from './components/MobileTopMenuBar/MobileTopMenuBar';
 import PreJoinScreens from './components/PreJoinScreens/PreJoinScreens';

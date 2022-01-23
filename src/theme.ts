@@ -112,7 +112,13 @@ export default createTheme({
   },
   palette: {
     primary: {
-      main: '#027AC5',
+      main: '#d58258',
+    },
+    secondary: {
+      main: '#000000',
+    },
+    background: {
+      default: '#ecb984',
     },
   },
   brand: '#E22525',
