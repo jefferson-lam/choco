@@ -7,6 +7,7 @@ import Room from './components/Room/Room';
 import useHeight from './hooks/useHeight/useHeight';
 import useRoomState from './hooks/useRoomState/useRoomState';
 import RoomBackground from './images/Apartment.jpeg';
+import { ChakraProvider } from '@chakra-ui/react';
 
 const Container = styled('div')({
   display: 'grid',
@@ -40,10 +41,15 @@ export default function App() {
       {roomState === 'disconnected' ? (
         <PreJoinScreens />
       ) : (
-        <Main>
-          <Room />
-          <MenuBar />
-        </Main>
+        <ChakraProvider>
+          <Main>
+            {/* <ReconnectingNotification />
+          <RecordingNotifications />
+          <MobileTopMenuBar /> */}
+            <Room />
+            <MenuBar />
+          </Main>
+        </ChakraProvider>
       )}
     </Container>
   );
