@@ -16,7 +16,8 @@ import ToggleScreenShareButton from '../Buttons/ToogleScreenShareButton/ToggleSc
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     container: {
-      backgroundColor: theme.palette.background.default,
+      backgroundColor: '#000000',
+      opacity: 0.5,
       bottom: 0,
       left: 0,
       right: 0,
@@ -25,6 +26,9 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       padding: '0 1.43em',
       zIndex: 10,
+      '&:hover': {
+        opacity: 1.0,
+      },
       [theme.breakpoints.down('sm')]: {
         height: `${theme.mobileFooterHeight}px`,
         padding: 0,

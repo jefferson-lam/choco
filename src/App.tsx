@@ -10,6 +10,7 @@ import Room from './components/Room/Room';
 
 import useHeight from './hooks/useHeight/useHeight';
 import useRoomState from './hooks/useRoomState/useRoomState';
+import RoomBackground from './images/room-space.png';
 
 const Container = styled('div')({
   display: 'grid',
@@ -20,6 +21,7 @@ const Main = styled('main')(({ theme }: { theme: Theme }) => ({
   overflow: 'hidden',
   paddingBottom: `${theme.footerHeight}px`, // Leave some space for the footer
   background: 'black',
+  backgroundImage: `url(${RoomBackground})`,
   [theme.breakpoints.down('sm')]: {
     paddingBottom: `${theme.mobileFooterHeight + theme.mobileTopBarHeight}px`, // Leave some space for the mobile header and footer
   },
@@ -41,9 +43,9 @@ export default function App() {
         <PreJoinScreens />
       ) : (
         <Main>
-          <ReconnectingNotification />
+          {/* <ReconnectingNotification />
           <RecordingNotifications />
-          <MobileTopMenuBar />
+          <MobileTopMenuBar /> */}
           <Room />
           <MenuBar />
         </Main>

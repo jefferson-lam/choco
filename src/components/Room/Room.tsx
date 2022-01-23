@@ -7,6 +7,9 @@ import MainParticipant from '../MainParticipant/MainParticipant';
 import BackgroundSelectionDialog from '../BackgroundSelectionDialog/BackgroundSelectionDialog';
 import useChatContext from '../../hooks/useChatContext/useChatContext';
 import useVideoContext from '../../hooks/useVideoContext/useVideoContext';
+import Participant from '../Participant/Participant';
+import Space from '../Space/Space';
+import RoomBackground from '../../images/room-space.png';
 
 const useStyles = makeStyles((theme: Theme) => {
   const totalMobileSidebarHeight = `${theme.sidebarMobileHeight +
@@ -34,14 +37,15 @@ export default function Room() {
   const { isBackgroundSelectionOpen } = useVideoContext();
   return (
     <div
-      className={clsx(classes.container, {
-        [classes.rightDrawerOpen]: isChatWindowOpen || isBackgroundSelectionOpen,
-      })}
+      style={{ backgroundImage: `url(${RoomBackground})` }}
+      // className={clsx(classes.container, {
+      //   [classes.rightDrawerOpen]: isChatWindowOpen || isBackgroundSelectionOpen,
+      // })}
     >
-      <MainParticipant />
-      <ParticipantList />
+      {/* <MainParticipant /> */}
+      {/* <ParticipantList />
       <ChatWindow />
-      <BackgroundSelectionDialog />
+      <BackgroundSelectionDialog /> */}
     </div>
   );
 }
