@@ -11,6 +11,7 @@ import Room from './components/Room/Room';
 import useHeight from './hooks/useHeight/useHeight';
 import useRoomState from './hooks/useRoomState/useRoomState';
 import RoomBackground from './images/room-space.png';
+import ReactAudioPlayer from 'react-audio-player';
 
 const Container = styled('div')({
   display: 'grid',
@@ -40,7 +41,10 @@ export default function App() {
   return (
     <Container style={{ height }}>
       {roomState === 'disconnected' ? (
-        <PreJoinScreens />
+        <>
+          <PreJoinScreens />
+          <ReactAudioPlayer src="./music/bedtime-coffee.ogg" autoPlay={true} />
+        </>
       ) : (
         <Main>
           {/* <ReconnectingNotification />
